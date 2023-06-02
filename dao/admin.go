@@ -10,6 +10,7 @@ import (
 )
 
 // Admin 管理员信息表
+// test pr
 type Admin struct {
 	Id        int       `json:"id" gorm:"primary_key" description:"自增主键"`
 	UserName  string    `json:"user_name" gorm:"column:user_name" description:"管理员用户名"`
