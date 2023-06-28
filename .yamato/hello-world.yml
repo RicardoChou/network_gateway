@@ -1,0 +1,70 @@
+Hello-World:
+  name: Hello-World
+  agent:
+    type: Unity::VM
+#     image: cds-ops/windows-msvc:stable
+    image: cds-ops/win10-vs2017:stable
+    flavor: b1.xlarge
+  commands:
+    - cd HelloWorld & HelloWorld.exe
+  artifacts:
+    build:
+      paths:
+      - Debug\**
+    logs:
+      paths:
+      - HelloWorld\**
+  triggers:
+    # recurring:
+    #   - frequency: 3 * * ? # Run every day at 10 PM.
+    #     branch: main
+    #     rerun: always
+    recurring:
+      - branch: main
+        frequency: 0/1 * * ? # Run every hour.
+        rerun: always
+  #  branches:
+  #    only:
+  #      - main
+      
+
+Hello-World-Again:
+  name: Hello-World-Again
+  agent:
+    type: Unity::VM
+    image: cds-ops/windows-msvc:stable
+    flavor: b1.xlarge
+  commands:
+    - cd HelloWorld & HelloWorld.exe
+  artifacts:
+    build:
+      paths:
+      - Debug\**
+    logs:
+      paths:
+      - HelloWorld\**
+        
+Hello-World-Linux:
+  name: Hello-World-Linux
+  agent:
+    type: Unity::VM
+    image: cds-ops/ubuntu:latest
+    flavor: b1.xlarge
+  commands:
+    - echo "Hello"
+    
+Hello-World-Failed:
+  name: Hello-World-Failed
+  agent:
+    type: Unity::VM
+    image: cds-ops/windows-msvc:stable
+    flavor: b1.xlarge
+  commands:
+    - cd HelloWorld & HelloWorld1.exe
+  artifacts:
+    build:
+      paths:
+      - Debug\**
+    logs:
+      paths:
+      - HelloWorld\**
