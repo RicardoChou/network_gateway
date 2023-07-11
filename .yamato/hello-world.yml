@@ -43,6 +43,15 @@ Hello-World-Again:
     logs:
       paths:
       - HelloWorld\**
+  triggers:
+    # # recurring:
+    # #   - frequency: 3 * * ? # Run every day at 10 PM.
+    # #     branch: main
+    # #     rerun: always
+    # recurring:
+    #   - branch: main
+    #     frequency: 0/1 * * ? # Run every hour.
+    #     rerun: always
     branches:
       only:
         - main
