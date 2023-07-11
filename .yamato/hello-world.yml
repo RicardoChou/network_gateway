@@ -43,6 +43,9 @@ Hello-World-Again:
     logs:
       paths:
       - HelloWorld\**
+    branches:
+      only:
+        - main
         
 Hello-World-Linux:
   name: Hello-World-Linux
